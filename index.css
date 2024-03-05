@@ -123,19 +123,29 @@ main {
   color: #fff;
 }
 
-.weather-forecast {
-  display: inline-block;
-  margin-left: 45px;
-  padding-top: 60px;
+.days-forecast {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 39px 15px 10px;
   color: #fff;
 }
 
-.day-temp img {
-  margin-left: -30px;
+.day-temp {
+  margin-top: -34px;
+  margin-right: -112px;
+  font-size: 21px;
+}
+
+.icon {
+  font-size: 36px;
+  margin-left: 10px;
 }
 
 .temp-unit {
   color: #ffd800;
+  margin-top: 62px;
+  font-size: 18px;
+  margin-left: -110px;
 }
 
 .minimum-temperature {
