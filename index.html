@@ -3,14 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="index.css" />
     <title>My weather application</title>
   </head>
   <body>
@@ -24,39 +28,114 @@
             class="search-input"
             id="search-input"
           />
-          <input type="submit" value="Search" class="search-button" />
+          <span class="material-symbols-outlined" id="search">search</span>
         </form>
       </header>
       <main>
         <div class="current-weather">
-          <div>
-            <h1 class="current-city" id="current-city">Paris</h1>
+          <div class="current-temperature">
+            <span id="icon"></span
+            ><span id="temp" class="current-temperature-value"></span
+            ><span class="current-temperature-unit">°C</span>
             <p class="current-details">
-              <span id="current-date"></span>, moderate rain <br />
-              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+              <span id="current-date"></span><br /><span
+                class="condition"
+                id="weather-condition"
+              ></span>
+              <br />
+              Humidity: <strong id="humidity"></strong><br />
+              Wind:
+              <strong id="wind"></strong>
             </p>
           </div>
-          <div class="current-temperature">
-            <span class="current-temperature-icon">☀️</span
-            ><span class="current-temperature-value" id="current-temperature"
-              >24</span
-            ><span class="current-temperature-unit">°C</span>
+          <div>
+            <h1 class="current-city" id="current-city"></h1>
           </div>
+
+          <!-- <div id="day-temp">
+                  Sun
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+
+              <li>
+                <div id="day-temp">
+                  Mon
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+
+              <li>
+                <div id="day-temp">
+                  Tue
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+
+              <li>
+                <div id="day-temp">
+                  Wed
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+
+              <li>
+                <div id="day-temp">
+                  Thu
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+
+              <li>
+                <div id="day-temp">
+                  Fri
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+
+              <li>
+                <div id="day-temp">
+                  Sat
+                  <br />
+                  🌧️
+                  <br />
+                  <strong>17°12°</strong>
+                </div>
+              </li>
+            </ul>
+-->
         </div>
       </main>
       <footer>
         <p>
           This project was coded by
-          <a href="https://github.com/N-Eiman" target="_blank">Thakane Eiman</a>
-          and is
-          <a
-            href="https://github.com/N-Eiman/SheCodes-Homework"
-            target="_blank"
+          <a href="https://github.com/N-Eiman" target="_blank"
+            >Thakane J. Eiman</a
           >
+          and is
+          <a href="https://github.com/N-Eiman/Weather-App" target="_blank">
             on GitHub</a
           >
           and
-          <a href="https://shecodes-w-app.netlify.app/" target="_blank"
+          <a href="https://check-city-w.netlify.app/" target="_blank"
             >hosted on Netlify</a
           >
         </p>

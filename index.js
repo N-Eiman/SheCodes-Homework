@@ -1,20 +1,45 @@
-function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
+function displayTemp(response) {
+  //Icon update
+  console.log(response);
+  let iconElement = document.querySelector("#icon");
+  iconElement.innerHTML = `<img src= ${response.data.condition.icon_url} class="current-temperature-icon" />`;
+
+  //retrieve date
+  let currentDateELement = document.querySelector("#current-date");
+  currentDateELement.innerHTML = formatDate(currentDate);
+
+  //retrieve city
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = temperature;
+
+  //update weather condition
+  let conditionElement = document.querySelector("#weather-condition");
+  let condition = response.data.condition.description;
+  conditionElement.innerHTML = condition;
+
+  //update humidity
+  let humidity = response.data.temperature.humidity;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = humidity + "%";
+  //update wind
+  let wind = response.data.wind.speed;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(wind) + "km/h";
+  //udate temperature
+  let temperature = Math.round(response.data.temperature.current);
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = temperature;
 }
 
 function search(event) {
   event.preventDefault();
   let searchInputElement = document.querySelector("#search-input");
+  let cityElement = document.querySelector("#current-city");
+  let apiKey = "3cb2babo00784f1f3eafe7ebatd350d2";
+  cityElement.innerHTML = searchInputElement.value;
   let city = searchInputElement.value;
-
-  let apiKey = "b2a5adcct04b33178913oc335f405433";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemp);
 }
 
 function formatDate(date) {
@@ -47,7 +72,8 @@ function formatDate(date) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
-currentDateELement.innerHTML = formatDate(currentDate);
+//create an event for the search icon so it works like a button
+let searchIcon = document.querySelector("#search");
+searchIcon.addEventListener("click", search);
