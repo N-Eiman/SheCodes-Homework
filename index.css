@@ -124,7 +124,7 @@ main {
 }
 
 .weather-forecast {
-  display: flex;
+  display: inline-block;
   margin-left: 45px;
   padding-top: 60px;
   color: #fff;

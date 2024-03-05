@@ -77,3 +77,23 @@ let currentDate = new Date();
 //create an event for the search icon so it works like a button
 let searchIcon = document.querySelector("#search");
 searchIcon.addEventListener("click", search);
+
+function displayWeatherForecast() {
+  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+  let forecast = "";
+
+  days.forEach(function (day) {
+    forecast += `<div class="day-temp">
+            ${day}</div>
+            <div class="icon">🌥️</div>
+            <div class="temp-unit">
+              <span class="maximum-temperature">17° </span
+              ><span class="minimum-temperature">12°</span>
+            </div>
+            `;
+    weatherForecast.innerHTML = forecast;
+  });
+}
+
+let weatherForecast = document.querySelector("#weather-forecast");
+displayWeatherForecast();
