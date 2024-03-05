@@ -9,7 +9,7 @@ a {
 
 .weather-app {
   background-color: #2461e5;
-  max-width: 600px;
+  max-width: 700px;
   margin: 60px auto;
   padding: 30px;
   border: none;
@@ -123,20 +123,23 @@ main {
   color: #fff;
 }
 
-ul {
-  list-style-type: none;
+.weather-forecast {
+  display: flex;
+  margin-left: 45px;
   padding-top: 60px;
   color: #fff;
 }
 
-li {
-  display: inline-block;
-  margin: 0;
-  padding: 10px;
-  font-size: 1em;
+.day-temp img {
+  margin-left: -30px;
 }
-strong {
+
+.temp-unit {
   color: #ffd800;
+}
+
+.minimum-temperature {
+  opacity: 0.7;
 }
 footer {
   border-top: 1px solid #f9f7fe;
