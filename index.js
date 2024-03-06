@@ -33,16 +33,20 @@ function displayTemp(response) {
   getDaysForecast(response.data.city);
 }
 
-function search(event) {
-  event.preventDefault();
-  let searchInputElement = document.querySelector("#search-input");
-  let cityElement = document.querySelector("#current-city");
+function searchCity(city) {
   let apiKey = "3cb2babo00784f1f3eafe7ebatd350d2";
-  cityElement.innerHTML = searchInputElement.value;
-  let city = searchInputElement.value;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemp);
 }
+
+function search(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#search-input");
+
+  searchCity(searchInputElement.value);
+}
+
+searchCity("Paris");
 
 function formatDate(date) {
   let minutes = date.getMinutes();
