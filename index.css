@@ -137,8 +137,9 @@ main {
 }
 
 .icon {
-  width: 10px;
-  margin-left: 10px;
+  width: 60px;
+  display: block;
+  margin: center;
 }
 
 .temp-unit {

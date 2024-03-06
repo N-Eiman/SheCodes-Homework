@@ -82,16 +82,24 @@ searchIcon.addEventListener("click", search);
 
 let weatherForecast = document.querySelector("#weather-forecast");
 
+function formatFutureDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function displayDaysForecast(response) {
   console.log(response.data.daily);
   let forecast = "";
 
-  response.data.daily.forEach(function (day) {
-    forecast += `<div class="day-temp" id="temp">
-            ${day}</div>
-            <div class="icon"><img src=${
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecast += `<div class="day-temp" id="temp">
+            ${formatFutureDate(day.time)}</div>
+            <div><img src=${
               day.condition.icon_url
-            } alt="temperature icon"></div>
+            } alt="temperature icon" class="icon"></div>
             <div class="temp-unit">
               <span class="maximum-temperature">${Math.round(
                 day.temperature.maximum
@@ -101,7 +109,8 @@ function displayDaysForecast(response) {
               )}°</span>
             </div>
             `;
-    weatherForecast.innerHTML = forecast;
+      weatherForecast.innerHTML = forecast;
+    }
   });
 }
 
