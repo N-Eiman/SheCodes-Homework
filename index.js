@@ -46,7 +46,7 @@ function search(event) {
   searchCity(searchInputElement.value);
 }
 
-searchCity("Paris");
+searchCity("Centurion");
 
 function formatDate(date) {
   let minutes = date.getMinutes();
